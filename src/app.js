@@ -12,11 +12,7 @@ app.get("/", (req, res) => {
   res.json({ message: "DashAuto Server is running" });
 });
 
-// Routes (se them sau)
-// app.use("/api/auth", authRoutes);
-// app.use("/api/dashboard", dashboardRoutes);
-// app.use("/api/reports", reportRoutes);
-// app.use("/api/alerts", alertRoutes);
-// app.use("/api/workflows", workflowRoutes);
+// Routes
+app.use("/api/auth", require("./routes/auth.routes"));
 
 module.exports = app;
