@@ -1,5 +1,42 @@
 const db = require("../db");
 
+const VALID_GROUPS = ["day", "month"];
+
+exports.getRevenue = async ({ groupBy = "day", from, to } = {}) => {
+  if (!VALID_GROUPS.includes(groupBy)) {
+    throw { status: 400, message: "groupBy phai la 'day' hoac 'month'" };
+  }
+
+  const params = [];
+  const where = ["status = 'completed'"];
+
+  if (from) {
+    params.push(from);
+    where.push(`created_at >= $${params.length}`);
+  }
+  if (to) {
+    params.push(to);
+    where.push(`created_at <= $${params.length}`);
+  }
+
+  const result = await db.query(
+    `SELECT DATE_TRUNC('${groupBy}', created_at) AS period,
+            COALESCE(SUM(total_amount), 0) AS revenue,
+            COUNT(*) AS orders
+     FROM orders
+     WHERE ${where.join(" AND ")}
+     GROUP BY period
+     ORDER BY period ASC`,
+    params
+  );
+
+  return result.rows.map((r) => ({
+    period: r.period,
+    revenue: Number(r.revenue),
+    orders: Number(r.orders),
+  }));
+};
+
 exports.getStats = async () => {
   const revenueQ = db.query(
     "SELECT COALESCE(SUM(total_amount), 0) AS total FROM orders WHERE status = 'completed'"

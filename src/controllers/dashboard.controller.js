@@ -8,3 +8,12 @@ exports.getStats = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+exports.getRevenue = async (req, res) => {
+  try {
+    const data = await dashboardService.getRevenue(req.query);
+    res.json(data);
+  } catch (err) {
+    res.status(err.status || 500).json({ message: err.message });
+  }
+};

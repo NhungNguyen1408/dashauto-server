@@ -6,5 +6,6 @@ const { authenticate } = require("../middlewares/auth.middleware");
 router.use(authenticate);
 
 router.get("/stats", dashboardController.getStats);
+router.get("/revenue", dashboardController.getRevenue);
 
 module.exports = router;
