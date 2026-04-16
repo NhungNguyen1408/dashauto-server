@@ -37,6 +37,32 @@ exports.getRevenue = async ({ groupBy = "day", from, to } = {}) => {
   }));
 };
 
+exports.getTopProducts = async ({ limit = 5 } = {}) => {
+  const lim = Math.min(Math.max(parseInt(limit) || 5, 1), 50);
+
+  const result = await db.query(
+    `SELECT p.id, p.name, p.category,
+            SUM(oi.quantity) AS quantity_sold,
+            SUM(oi.quantity * oi.unit_price) AS revenue
+     FROM order_items oi
+     JOIN orders o ON o.id = oi.order_id
+     JOIN products p ON p.id = oi.product_id
+     WHERE o.status = 'completed'
+     GROUP BY p.id, p.name, p.category
+     ORDER BY quantity_sold DESC
+     LIMIT $1`,
+    [lim]
+  );
+
+  return result.rows.map((r) => ({
+    id: r.id,
+    name: r.name,
+    category: r.category,
+    quantitySold: Number(r.quantity_sold),
+    revenue: Number(r.revenue),
+  }));
+};
+
 exports.getStats = async () => {
   const revenueQ = db.query(
     "SELECT COALESCE(SUM(total_amount), 0) AS total FROM orders WHERE status = 'completed'"
