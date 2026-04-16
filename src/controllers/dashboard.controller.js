@@ -26,3 +26,12 @@ exports.getTopProducts = async (req, res) => {
     res.status(err.status || 500).json({ message: err.message });
   }
 };
+
+exports.getKpi = async (req, res) => {
+  try {
+    const data = await dashboardService.getKpi(req.query);
+    res.json(data);
+  } catch (err) {
+    res.status(err.status || 500).json({ message: err.message });
+  }
+};

@@ -8,5 +8,6 @@ router.use(authenticate);
 router.get("/stats", dashboardController.getStats);
 router.get("/revenue", dashboardController.getRevenue);
 router.get("/top-products", dashboardController.getTopProducts);
+router.get("/kpi", dashboardController.getKpi);
 
 module.exports = router;

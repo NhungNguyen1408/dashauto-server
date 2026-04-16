@@ -37,6 +37,45 @@ exports.getRevenue = async ({ groupBy = "day", from, to } = {}) => {
   }));
 };
 
+exports.getKpi = async ({ by = "region" } = {}) => {
+  if (by === "region") {
+    const result = await db.query(
+      `SELECT COALESCE(region, 'Unknown') AS label,
+              COUNT(*) AS orders,
+              COALESCE(SUM(total_amount), 0) AS revenue
+       FROM orders
+       WHERE status = 'completed'
+       GROUP BY region
+       ORDER BY revenue DESC`
+    );
+    return result.rows.map((r) => ({
+      label: r.label,
+      orders: Number(r.orders),
+      revenue: Number(r.revenue),
+    }));
+  }
+
+  if (by === "employee") {
+    const result = await db.query(
+      `SELECT COALESCE(u.username, 'Unknown') AS label,
+              COUNT(o.id) AS orders,
+              COALESCE(SUM(o.total_amount), 0) AS revenue
+       FROM orders o
+       LEFT JOIN users u ON u.id = o.employee_id
+       WHERE o.status = 'completed'
+       GROUP BY u.username
+       ORDER BY revenue DESC`
+    );
+    return result.rows.map((r) => ({
+      label: r.label,
+      orders: Number(r.orders),
+      revenue: Number(r.revenue),
+    }));
+  }
+
+  throw { status: 400, message: "by phai la 'region' hoac 'employee'" };
+};
+
 exports.getTopProducts = async ({ limit = 5 } = {}) => {
   const lim = Math.min(Math.max(parseInt(limit) || 5, 1), 50);
 
