@@ -2,10 +2,10 @@ const dashboardService = require("../services/dashboard.service");
 
 exports.getStats = async (req, res) => {
   try {
-    const stats = await dashboardService.getStats();
+    const stats = await dashboardService.getStats(req.query);
     res.json(stats);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(err.status || 500).json({ message: err.message });
   }
 };
 
