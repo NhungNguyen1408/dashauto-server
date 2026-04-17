@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict 4uAJkOsdumnaCpopIWiIVvQ1t7GB6AaLOvqeODg0Y0tNDp9srW580UGPbifDxcR
+\restrict eyG116MrFy1K0FTEtNADFwVrU3l7NGQKLXOBcPcq1gD8YFkgxnRmXzaTZVDulMg
 
 -- Dumped from database version 16.13
 -- Dumped by pg_dump version 16.13
@@ -460,6 +460,20 @@ COPY public.alerts (id, type, message, severity, status, created_at, resolved_at
 114	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 17:52:57.024185	\N
 115	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 17:53:57.028113	\N
 116	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 17:54:57.029196	\N
+117	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 17:55:57.025504	\N
+118	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 17:56:57.025644	\N
+119	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 17:57:57.023789	\N
+120	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 17:58:57.019336	\N
+121	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 17:59:57.026282	\N
+122	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 18:00:57.029533	\N
+123	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 18:01:57.014749	\N
+124	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 18:02:57.0248	\N
+125	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 18:03:57.024553	\N
+126	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 18:04:57.023652	\N
+127	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 18:05:57.020588	\N
+128	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 18:06:57.031206	\N
+129	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 18:07:57.027221	\N
+130	low_order_rate	Khong co don hang trong 1 gio qua - phat hien boi n8n	warning	open	2026-04-17 18:08:57.022263	\N
 \.
 
 
@@ -962,6 +976,33 @@ COPY public.workflow_logs (id, workflow_name, status, message, executed_at) FROM
 249	cron_heartbeat	success	Cron chay luc 2026-04-17 17:54:51.022337+00	2026-04-17 17:54:51.022337
 250	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 17:54:57.031395
 251	cron_heartbeat	success	Cron chay luc 2026-04-17 17:55:51.015582+00	2026-04-17 17:55:51.015582
+252	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 17:55:57.027555
+253	cron_heartbeat	success	Cron chay luc 2026-04-17 17:56:51.020194+00	2026-04-17 17:56:51.020194
+254	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 17:56:57.027513
+255	cron_heartbeat	success	Cron chay luc 2026-04-17 17:57:51.017122+00	2026-04-17 17:57:51.017122
+256	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 17:57:57.025671
+257	cron_heartbeat	success	Cron chay luc 2026-04-17 17:58:51.026492+00	2026-04-17 17:58:51.026492
+258	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 17:58:57.022269
+259	cron_heartbeat	success	Cron chay luc 2026-04-17 17:59:51.024901+00	2026-04-17 17:59:51.024901
+260	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 17:59:57.029111
+261	cron_heartbeat	success	Cron chay luc 2026-04-17 18:00:51.026627+00	2026-04-17 18:00:51.026627
+262	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 18:00:57.032041
+263	cron_heartbeat	success	Cron chay luc 2026-04-17 18:01:51.023144+00	2026-04-17 18:01:51.023144
+264	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 18:01:57.016796
+265	cron_heartbeat	success	Cron chay luc 2026-04-17 18:02:51.026339+00	2026-04-17 18:02:51.026339
+266	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 18:02:57.029292
+267	cron_heartbeat	success	Cron chay luc 2026-04-17 18:03:51.020941+00	2026-04-17 18:03:51.020941
+268	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 18:03:57.026811
+269	cron_heartbeat	success	Cron chay luc 2026-04-17 18:04:51.028808+00	2026-04-17 18:04:51.028808
+270	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 18:04:57.025497
+271	cron_heartbeat	success	Cron chay luc 2026-04-17 18:05:51.025537+00	2026-04-17 18:05:51.025537
+272	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 18:05:57.023022
+273	cron_heartbeat	success	Cron chay luc 2026-04-17 18:06:51.026048+00	2026-04-17 18:06:51.026048
+274	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 18:06:57.03353
+275	cron_heartbeat	success	Cron chay luc 2026-04-17 18:07:51.023495+00	2026-04-17 18:07:51.023495
+276	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 18:07:57.029823
+277	cron_heartbeat	success	Cron chay luc 2026-04-17 18:08:51.026084+00	2026-04-17 18:08:51.026084
+278	hourly_orders_check	failed	Khong co don trong 1h qua - da tao alert	2026-04-17 18:08:57.024313
 \.
 
 
@@ -969,7 +1010,7 @@ COPY public.workflow_logs (id, workflow_name, status, message, executed_at) FROM
 -- Name: alerts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dashauto
 --
 
-SELECT pg_catalog.setval('public.alerts_id_seq', 116, true);
+SELECT pg_catalog.setval('public.alerts_id_seq', 130, true);
 
 
 --
@@ -1011,7 +1052,7 @@ SELECT pg_catalog.setval('public.users_id_seq', 2, true);
 -- Name: workflow_logs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dashauto
 --
 
-SELECT pg_catalog.setval('public.workflow_logs_id_seq', 251, true);
+SELECT pg_catalog.setval('public.workflow_logs_id_seq', 278, true);
 
 
 --
@@ -1158,5 +1199,5 @@ ALTER TABLE ONLY public.reports
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 4uAJkOsdumnaCpopIWiIVvQ1t7GB6AaLOvqeODg0Y0tNDp9srW580UGPbifDxcR
+\unrestrict eyG116MrFy1K0FTEtNADFwVrU3l7NGQKLXOBcPcq1gD8YFkgxnRmXzaTZVDulMg
 
