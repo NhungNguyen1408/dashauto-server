@@ -50,14 +50,7 @@ npm run dev
 - **Automation**: n8n (Docker)
 - **Infra**: Docker Compose
 
-## Vai trò đồ án
 
-| Người | Phụ trách |
-|---|---|
-| Tuấn | Frontend, Backend, Database, Docker infrastructure |
-| Nhung | n8n workflows, automation, demo business logic |
-
-## Repo
 
 ```
 c:/Tuan/Nhung/
